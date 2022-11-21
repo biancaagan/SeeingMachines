@@ -1,1 +1,1 @@
-This is for thhe Seeing Machines class at ITP Fall 2022.
+This is for the Seeing Machines class at ITP Fall 2022.
