@@ -1,0 +1,14 @@
+{
+    "tracker!": {
+        "Blur_Amount": "16",
+        "Color_Offset": "35",
+        "Color_Target": "245, 230, 12, 255",
+        "Debug_Mode": "1",
+        "Erode_Amount": "0",
+        "Max_Area": "0.05",
+        "Max_Distance": "281.6",
+        "Min_Area": "0.0015",
+        "Persistence": "15",
+        "Show_Labels": "1"
+    }
+}
