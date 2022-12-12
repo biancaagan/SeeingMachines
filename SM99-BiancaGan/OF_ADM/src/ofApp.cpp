@@ -30,7 +30,7 @@ void ofApp::setup(){
     serial.listDevices();
     vector <ofSerialDeviceInfo> deviceList = serial.getDeviceList();
     int baud = 9600;
-    serial.setup("/dev/cu.usbmodem14401", baud);
+    serial.setup("/dev/cu.usbmodem14301", baud);
     
     sendDataArr = new char[2];
     
@@ -78,6 +78,7 @@ void ofApp::update(){
     if(grabber.isFrameNew()){
         
         grabberImg.setFromPixels(grabber.getPixels());
+        grabberImg.mirror(false, true);
         
         colorUnderMouse = grabberImg.getColor(ofGetMouseX(), ofGetMouseY());
         
@@ -145,9 +146,9 @@ void ofApp::draw(){
     ofDrawBitmapString(upMsg, ofGetWidth()/2, 60);
     
     string downMsg = "DOWN!\n";
-    ofSetColor(ofColor::yellow);
+    //ofSetColor(ofColor::yellow);
     //ofRect(ofGetWidth()/2, 405, 40, 25);
-    //ofSetColor(ofColor::red);
+    ofSetColor(ofColor::red);
     ofDrawBitmapString(downMsg, ofGetWidth()/2, 420);
     
     string rightMsg = "RIGHT!\n";
@@ -202,14 +203,15 @@ void ofApp::draw(){
         sendData = 2;
     }
     
-    // X coordinate more than 0
-    if(mappedX > 0 && mappedY < 100 && mappedY > -100){
+    
+    // X coordinate less than 0
+    if(mappedX < 0 && mappedY < 100 && mappedY > -100){
         serialMessage = true;
         sendData = 3;
     }
     
-    // X coordinate less than 0
-    if(mappedX < 0 && mappedY < 100 && mappedY > -100){
+    // X coordinate more than 0
+    if(mappedX > 0 && mappedY < 100 && mappedY > -100){
         serialMessage = true;
         sendData = 4;
     }
